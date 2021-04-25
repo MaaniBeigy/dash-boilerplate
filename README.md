@@ -30,9 +30,13 @@ Replace the values in **.env.example** with your values and rename this file to 
 Get up and running with `make deploy`:
 
 ```shell
-git clone
-cd
+git clone https://github.com/MaaniBeigy/dash-boilerplate.git
+cd dash-boilerplate
 make deploy
 ```
 
-Inspired by [toddbirchard/plotlydash-flask-tutorial](https://github.com/toddbirchard/plotlydash-flask-tutorial).
+Then, open http://0.0.0.0:5000/  in your browser.
+
+### Inspired by
+
+[toddbirchard/plotlydash-flask-tutorial](https://github.com/toddbirchard/plotlydash-flask-tutorial).
