@@ -34,3 +34,5 @@ git clone
 cd
 make deploy
 ```
+
+Inspired by [toddbirchard/plotlydash-flask-tutorial](https://github.com/toddbirchard/plotlydash-flask-tutorial).
