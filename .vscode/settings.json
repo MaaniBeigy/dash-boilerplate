@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "python.linting.flake8Enabled": true,
+  "extension-manager.extensions": [
+    "ms-python.python",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "2gua.rainbow-brackets",
+    "oderwat.indent-rainbow",
+    "yzhang.markdown-all-in-one",
+  ],
+  "python.testing.pytestArgs": [
+    "spec"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true,
+}

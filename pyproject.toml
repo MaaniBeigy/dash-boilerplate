@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "dash_poilerplate"
+version = "0.1.0"
+description = "Boilerplate for Python Dash Projects"
+authors = ["Maani Beigy <manibeygi@gmail.com>"]
+maintainers = ["Maani Beigy <manibeygi@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = ""
+repository = ""
+documentation = ""
+keywords = [
+    "Flask",
+    "Plotly",
+    "Plotly Dash",
+    "Data Science"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "*"
+flask_assets = "*"
+dash = "*"
+dash_table = "*"
+dash_core_components = "*"
+dash_html_components = "*"
+dash_bootstrap_components = "*"
+dash-renderer = "*"
+pandas = "*"
+python-dotenv = "*"
+uWSGI = "*"
+datetime = "*"
+sqlalchemy = "*"
+plotly = "*"
+werkzeug = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+black = "*"
+isort = "*"
+
+[tool.poetry.scripts]
+run = "wsgi:app"
+
+[tool.poetry.urls]
+issues = ""
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
