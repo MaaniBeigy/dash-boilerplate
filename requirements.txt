@@ -16,3 +16,4 @@ autopep8
 pytest
 pytest-cov
 safety
+python-dotenv
