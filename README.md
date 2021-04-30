@@ -30,6 +30,7 @@ Get up and running with `make deploy`:
 ```shell
 git clone https://github.com/MaaniBeigy/dash-boilerplate.git
 cd dash-boilerplate
+# edit .env.example and save it as .env
 make deploy
 ```
 
