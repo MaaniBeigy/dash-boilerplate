@@ -8,6 +8,7 @@
 [![vulnerabilities](assets/images/vulnerabilities.svg)](.logs/safety.txt)
 [![lint report](assets/images/pylint.svg)](.logs/pylint-log.txt)
 [![Dependencies Status](assets/images/dependencies.svg)](.logs/dependencies.txt)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMaaniBeigy%2Fdash-boilerplate.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FMaaniBeigy%2Fdash-boilerplate?ref=badge_shield)
 
 [![interrogate](assets/images/interrogate_badge.svg)](.logs/docstring.txt)
 [![maintainability](assets/images/maintainability.svg)](.logs/maintainability.txt)
@@ -96,3 +97,7 @@ git push -u origin main
 ### Credits
 
 [testdrivenio/flask-on-docker](https://github.com/testdrivenio/flask-on-docker)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMaaniBeigy%2Fdash-boilerplate.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FMaaniBeigy%2Fdash-boilerplate?ref=badge_large)
