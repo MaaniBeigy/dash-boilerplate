@@ -2,12 +2,12 @@
 
 # Boilerplate for Python Dash Projects
 
+[![Build status](https://github.com/MaaniBeigy/dash-boilerplate/workflows/build/badge.svg)](https://github.com/MaaniBeigy/dash-boilerplate/actions?query=workflow%3Abuild)
 [![coverage report](assets/images/coverage.svg)](.logs/coverage.txt)
 [![static analysis](assets/images/mypy.svg)](.logs/mypy.txt)
 [![vulnerabilities](assets/images/vulnerabilities.svg)](.logs/safety.txt)
 [![lint report](assets/images/pylint.svg)](.logs/pylint-log.txt)
 [![Dependencies Status](assets/images/dependencies.svg)](.logs/dependencies.txt)
-
 
 [![interrogate](assets/images/interrogate_badge.svg)](.logs/docstring.txt)
 [![maintainability](assets/images/maintainability.svg)](.logs/maintainability.txt)
