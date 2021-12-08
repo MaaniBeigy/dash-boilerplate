@@ -1,19 +1,24 @@
-dash-core-components
-dash-html-components
-dash-renderer
-dash-table
-dash
-flask-assets
-flask
-numpy
-pandas
-plotly
-uwsgi
-webassets
-werkzeug
-flake8
-autopep8
-pytest
-pytest-cov
-safety
-python-dotenv
+brotli==1.0.9; python_version >= "3.6"
+click==8.0.3; python_version >= "3.6"
+colorama==0.4.4; python_version >= "3.6" and python_full_version < "3.0.0" and platform_system == "Windows" or platform_system == "Windows" and python_version >= "3.6" and python_full_version >= "3.5.0"
+dash==2.0.0; python_version >= "3.6"
+dash-core-components==2.0.0; python_version >= "3.6"
+dash-html-components==2.0.0; python_version >= "3.6"
+dash-renderer==1.9.1
+dash-table==5.0.0; python_version >= "3.6"
+flask==2.0.2; python_version >= "3.6"
+flask-assets==2.0
+flask-compress==1.10.1; python_version >= "3.6"
+gunicorn==20.1.0; python_version >= "3.5"
+itsdangerous==2.0.1; python_version >= "3.6"
+jinja2==3.0.3; python_version >= "3.6"
+markupsafe==2.0.1; python_version >= "3.6"
+numpy==1.21.1; python_version >= "3.7"
+pandas==1.3.4; python_full_version >= "3.7.1"
+plotly==5.4.0; python_version >= "3.6"
+python-dateutil==2.8.2; python_full_version >= "3.7.1"
+pytz==2021.3; python_full_version >= "3.7.1"
+six==1.16.0; python_full_version >= "3.7.1" and python_version >= "3.6"
+tenacity==8.0.1; python_version >= "3.6"
+webassets==2.0
+werkzeug==2.0.2; python_version >= "3.6"

@@ -1,0 +1,8 @@
+lib/web/project/config.py
+    C 7:0 Config - A (1)
+lib/web/project/__init__.py
+    F 22:0 summer - A (1)
+    F 89:0 update_output_div - A (1)
+
+3 blocks (classes, functions, methods) analyzed.
+Average complexity: A (1.0)

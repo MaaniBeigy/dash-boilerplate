@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  web:
+    build: ./lib/web
+    command: gunicorn --bind 0.0.0.0:5000 manage --reload
+    volumes:
+      - ./lib/web/:/usr/src/app
+    expose:
+      - 5000
+    env_file:
+      - ./.env.dev
+
+  nginx:
+    build: ./lib/nginx
+    volumes:
+      - ./lib/web/project/static/:/home/app/web/project/static
+      - ./lib/web/:/usr/src/app/
+    ports:
+      - 1337:80
+    depends_on:
+      - web

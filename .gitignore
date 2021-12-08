@@ -1,3 +1,9 @@
+*.pyc
+__pycache
+.DS_Store
+.env.dev
+.env.prod
+.env.prod.db
 .idea
 .ipynb_checkpoints
 .mypy_cache
@@ -5,7 +11,6 @@
 __pycache__
 .pytest_cache
 htmlcov
-dist
 site
 .coverage
 coverage.xml
@@ -15,14 +20,21 @@ log.txt
 Pipfile.lock
 env3.*
 env
-.env
 docs_build
 venv
 .venv
 docs.zip
 archive.zip
 .report.json
-
 # vim temporary files
 *~
 .*.sw?
+.venv*
+build/
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+.Python build/
+build

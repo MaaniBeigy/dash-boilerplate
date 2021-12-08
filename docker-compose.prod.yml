@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  web:
+    build:
+      context: ./lib/web
+      dockerfile: Dockerfile.prod
+    command: gunicorn --bind 0.0.0.0:5000 manage
+    volumes:
+      - static_volume:/home/app/web/project/static
+    expose:
+      - 5000
+    env_file:
+      - ./.env.prod
+
+  nginx:
+    build: ./lib/nginx
+    volumes:
+      - static_volume:/home/app/web/project/static
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+
+volumes:
+  static_volume:

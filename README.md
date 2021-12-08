@@ -1,41 +1,98 @@
+<div align="center">
+
 # Boilerplate for Python Dash Projects
 
-![Python](https://img.shields.io/badge/Python-^3.8-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
-![Flask](https://img.shields.io/badge/Flask-1.1.2-blue.svg?longCache=true&logo=flask&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![Flask-Assets](https://img.shields.io/badge/Flask--Assets-v2.0-blue.svg?longCache=true&logo=flask&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![Pandas](https://img.shields.io/badge/Pandas-v^1.1.5-blue.svg?longCache=true&logo=python&longCache=true&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![Dash](https://img.shields.io/badge/Dash-v1.18.0-blue.svg?longCache=true&logo=python&longCache=true&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
-![Plotly](https://img.shields.io/badge/Plotly-v4.14.0-blue.svg?longCache=true&logo=python&longCache=true&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
+[![coverage report](assets/images/coverage.svg)](.logs/coverage.txt)
+[![static analysis](assets/images/mypy.svg)](.logs/mypy.txt)
+[![vulnerabilities](assets/images/vulnerabilities.svg)](.logs/safety.txt)
+[![lint report](assets/images/pylint.svg)](.logs/pylint-log.txt)
+[![Dependencies Status](assets/images/dependencies.svg)](.logs/dependencies.txt)
 
-## Getting Started
 
-Get set up locally in two steps:
+[![interrogate](assets/images/interrogate_badge.svg)](.logs/docstring.txt)
+[![maintainability](assets/images/maintainability.svg)](.logs/maintainability.txt)
+[![complexity](assets/images/complexity.svg)](.logs/complexity.txt)
+[![Code style: black](assets/images/codestyle.svg)](https://github.com/psf/black)
+[![Security: bandit](assets/images/security.svg)](https://github.com/PyCQA/bandit)
+[![Pre-commit](assets/images/precommits.svg)](.pre-commit-config.yaml)
+[![license](assets/images/licence.svg)](LICENSE)
 
-### Environment Variables
+Production-ready (i.e., dockerized) dash app boilerplate
 
-Replace the values in **.env.example** with your values and rename this file to **.env**:
+</div>
 
-* `FLASK_APP`: Entry point of your application; should be `wsgi.py`.
-* `FLASK_ENV`: The environment in which to run your application; either `development` or `production`.
-* `SECRET_KEY`: Randomly generated string of characters used to encrypt your app's data.
-* `ASSETS_DEBUG` *(optional)*: Debug asset creation and bundling in `development`.
-* `COMPRESSOR_DEBUG` *(optional)*: Debug asset compression while in `development`.
+### Development
 
-*Remember never to commit secrets saved in .env files to Gitlab.*
+Uses gunicorn + nginx.
 
-### Installation
+1. Rename *.env.dev.example* to *.env.dev*.
+2. Update the environment variables in the *docker-compose.yml* and *.env.dev* files.
+3. Build the images and run the containers:
 
-Get up and running with `make deploy`:
+    ```sh
+    docker-compose up -d --build
+    ```
+    Test it out at [http://localhost:1337](http://localhost:1337). The "web" folder is mounted into the container and your code changes apply automatically.
 
-```shell
-git clone https://github.com/MaaniBeigy/dash-boilerplate.git
-cd dash-boilerplate
-# edit .env.example and save it as .env
-make deploy
+4. Check the logs if necessary:
+
+    ```sh
+    docker-compose -f docker-compose.yml logs -f
+    ```
+
+5. Drop the container when you are done:
+
+    ```sh
+    docker-compose -f docker-compose.yml down -v
+    ```
+
+
+
+### Production
+
+Uses gunicorn + nginx.
+
+1. Rename *.env.prod.example* to *.env.prod*. Update the environment variables.
+2. Build the images and run the containers:
+
+    ```sh
+    docker-compose -f docker-compose.prod.yml up -d --build
+    ```
+    Test it out at [http://localhost:1337](http://localhost:1337). No mounted folders. To apply changes, the image must be re-built.
+
+
+3. Check the logs if necessary:
+
+    ```sh
+    docker-compose -f docker-compose.prod.yml logs -f
+    ```
+
+4. Drop the container when you are done:
+
+    ```sh
+    docker-compose -f docker-compose.prod.yml down -v
+    ```
+
+### Local testing and generating badges:
+
+```bash
+python3.9 -m venv .venv_39
+. .venv_39/bin/activate
+python3 -m pip install --upgrade pip poetry
+make install
+make pre-commit-install
+make test && make coverage && make check-codestyle && make mypy && make check-safety && make extrabadges
 ```
 
-Then, open 0.0.0.0:5050 in your browser.
+### Upload code to GitHub:
 
-### Inspired by
+```bash
+pre-commit run --all-files
+git add .
+git commit -m ":tada: Initial commit"
+git push -u origin main
+```
 
-[toddbirchard/plotlydash-flask-tutorial](https://github.com/toddbirchard/plotlydash-flask-tutorial).
+### Credits
+
+[testdrivenio/flask-on-docker](https://github.com/testdrivenio/flask-on-docker)

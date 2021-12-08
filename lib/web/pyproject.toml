@@ -52,7 +52,6 @@ dash-renderer = "^1.9.1"
 
 [tool.poetry.dev-dependencies]
 pip = "^21.3.1"
-dash = {extras = ["testing"], version = "*"}
 bandit = "^1.7.1"
 black = {version = "^21.10b0", allow-prereleases = true}
 darglint = "^1.8.1"
@@ -74,8 +73,6 @@ flake8 = "^3.9.2"
 radon = "^5.1.0"
 docstr-coverage = "^2.1.1"
 interrogate = "^1.5.0"
-Jinja2 = ""
-pybadges = "*"
 
 [tool.black]
 # https://github.com/psf/black
@@ -139,7 +136,6 @@ warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
 
-
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
 # Directories that are not visited by pytest collector:
@@ -155,10 +151,10 @@ addopts = [
 ]
 
 [tool.coverage.run]
-source = ["lib/web/tests"]
+source = ["tests"]
 
 [coverage.paths]
-source = "lib/web/project"
+source = "project"
 
 [coverage.run]
 branch = true
@@ -169,7 +165,7 @@ show_missing = true
 
 [tool.bandit]
 tests = ["B201"]
-skips = ["B101", "B601", "B104"]
+skips = ["B101", "B601"]
 
 
 [tool.bandit.any_other_function_with_shell_equals_true]
@@ -240,8 +236,8 @@ quiet = false
 whitelist-regex = []
 color = true
 omit-covered-files = false
-generate-badge = "assets/images/"
-badge-format = "svg"
+# generate-badge = "assets/images/"
+# badge-format = "svg"
 
 [tool.radon]
 exclude = "test_*.py"

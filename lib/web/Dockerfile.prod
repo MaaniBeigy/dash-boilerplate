@@ -1,0 +1,68 @@
+# ------------------------------------- base image ------------------------------------
+FROM python:3.9.5-slim as python-base
+# python
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PYTHONUNBUFFERED=1 \
+    # prevents python creating .pyc files
+    PYTHONDONTWRITEBYTECODE=1 \
+    \
+    # pip
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 \
+    \
+    # poetry
+    # https://python-poetry.org/docs/configuration/#using-environment-variables
+    POETRY_VERSION=1.0.3 \
+    # make poetry install to this location
+    POETRY_HOME="/opt/poetry" \
+    # make poetry create the virtual environment in the project's root
+    # it gets named `.venv`
+    POETRY_VIRTUALENVS_IN_PROJECT=true \
+    # do not ask any interactive question
+    POETRY_NO_INTERACTION=1 \
+    \
+    # paths
+    # this is where our requirements + virtual environment will live
+    PYSETUP_PATH="/opt/pysetup" \
+    VENV_PATH="/opt/pysetup/.venv"
+# prepend poetry and venv to path
+ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+# `builder-base` stage is used to build deps + create our virtual environment
+# ----------------------------------- builder image -----------------------------------
+FROM python-base as builder-base
+# install poetry - respects $POETRY_VERSION & $POETRY_HOME
+RUN pip install --upgrade pip && \
+    pip install poetry
+# copy project requirement files here to ensure they will be cached.
+WORKDIR $PYSETUP_PATH
+COPY poetry.lock pyproject.toml ./
+RUN poetry lock -n && poetry export --without-hashes > requirements.txt && \
+# install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
+    poetry install --no-dev
+# ---------------------------------- production image ---------------------------------
+# `production` image used for runtime
+FROM python-base as productions
+# create directory for the app user
+RUN mkdir -p /home/app
+# create the app user
+RUN addgroup --system app && adduser --system --group app
+# create the appropriate directories
+ENV HOME=/home/app \
+    APP_HOME=/home/app/web
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+# define flask app env variables
+ENV FLASK_APP=project/__init__.py \
+    FLASK_ENV=production \
+    APP_FOLDER=/usr/src/app
+# copy installed python packages from builder image
+COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
+# copy project
+COPY . $APP_HOME
+RUN rm -rf /var/lib/apt/lists/*
+# chown all the files to the app user
+RUN chown -R app:app $APP_HOME
+# change to the app user
+USER app
