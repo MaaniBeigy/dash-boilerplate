@@ -38,7 +38,7 @@ jobs:
         make test
     - name: Run coverage
       run: |
-        make coverage
+        poetry run pytest --cov-report html --cov lib/web/project lib/web/tests
     - name: Run safety checks
       run: |
         make check-safety
