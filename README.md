@@ -18,7 +18,7 @@
 [![Pre-commit](assets/images/precommits.svg)](.pre-commit-config.yaml)
 [![license](assets/images/licence.svg)](LICENSE)
 
-Production-ready (i.e., dockerized) dash app boilerplate
+Production-ready (i.e., dockerized) dash app boilerplate.
 
 </div>
 
