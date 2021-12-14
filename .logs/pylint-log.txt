@@ -1,3 +1,6 @@
+The currently activated Python version 3.8.10 is not supported by the project (^3.9).
+Trying to find and use a compatible version.
+Using python3.9 (3.9.9)
 
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
