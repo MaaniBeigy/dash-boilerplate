@@ -1,10 +1,7 @@
-The currently activated Python version 3.8.10 is not supported by the project (^3.9).
-Trying to find and use a compatible version.
-Using python3.9 (3.9.9)
 ============================= test session starts ==============================
 platform linux -- Python 3.9.9, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
 rootdir: /data/aasaam/projects/dash-boilerplate/lib/web, configfile: pytest.ini
-plugins: flaky-3.7.0, html-3.1.1, metadata-1.11.0, dash-2.0.0, cov-3.0.0, sugar-0.9.4, mock-3.6.1
+plugins: metadata-1.11.0, html-3.1.1, flaky-3.7.0, mock-3.6.1, sugar-0.9.4, cov-3.0.0, dash-2.0.0
 collected 3 items
 
 lib/web/tests/test_dash.py .                                             [ 33%]
@@ -20,4 +17,4 @@ TOTAL                            20      0      4      0   100%
 
 Required test coverage of 50.0% reached. Total coverage: 100.00%
 
-============================== 3 passed in 1.57s ===============================
+============================== 3 passed in 1.04s ===============================

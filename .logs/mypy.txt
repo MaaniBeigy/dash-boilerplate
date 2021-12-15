@@ -1,4 +1,1 @@
-The currently activated Python version 3.8.10 is not supported by the project (^3.9).
-Trying to find and use a compatible version.
-Using python3.9 (3.9.9)
 Success: no issues found in 2 source files

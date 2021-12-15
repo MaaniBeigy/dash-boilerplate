@@ -27,7 +27,7 @@ pre-commit-install:
 #* Formatters
 .PHONY: codestyle
 codestyle:
-	poetry run pyupgrade --exit-zero-even-if-changed --py38-plus **/*.py
+	poetry run pyupgrade --exit-zero-even-if-changed --py39-plus **/*.py
 	poetry run isort lib/*.py --settings-path pyproject.toml ./
 	poetry run black lib/*.py --config pyproject.toml ./
 
