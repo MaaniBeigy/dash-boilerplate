@@ -41,6 +41,7 @@ classifiers = [
 python = "^3.9"
 gunicorn="^20.1.0"
 dash = "*"
+dash-bootstrap-components = "*"
 flask = "^2.0.2"
 flask-assets = "^2.0"
 numpy = "*"
@@ -73,6 +74,7 @@ flake8 = "^3.9.2"
 radon = "^5.1.0"
 docstr-coverage = "^2.1.1"
 interrogate = "^1.5.0"
+celery = "*"
 
 [tool.black]
 # https://github.com/psf/black

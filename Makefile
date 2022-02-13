@@ -77,7 +77,7 @@ mypy:
 .PHONY: check-safety
 check-safety:
 	poetry check
-	poetry run safety check --full-report
+	poetry run safety check --full-report --ignore 44715
 	poetry run bandit -ll --recursive lib/web/project lib/web/tests
 
 .PHONY: lint
