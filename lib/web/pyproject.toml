@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "dash-boilerplate"
-version = "0.1.0"
+version = "0.1.2"
 description = "Boilerplate for Python Dash Projects"
 readme = "README.md"
 authors = ["Maani Beigy <manibeygi@gmail.com>"]
